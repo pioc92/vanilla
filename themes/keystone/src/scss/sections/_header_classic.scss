@@ -4,13 +4,9 @@
  * @license GPL-2.0-only
  */
 
-.Panel-main {
+.Header .MeButton {
 
-    .BoxFilter.BoxFilter,
-    .Box.Box {
-
-        a::before {
-            content: none;
-        }
+    .Alert {
+        color: $global-color_white;
     }
 }

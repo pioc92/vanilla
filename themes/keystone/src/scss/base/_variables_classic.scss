@@ -8,7 +8,7 @@
     Global Overwrites
 \* -------------------------------------------------------------- */
 
-$global_borderRadius:                   2px !default;
+$global_borderRadius:                   3px !default;
 
 $global-color_black:                    #000;
 $global-color_white:                    #FFF;
@@ -17,7 +17,7 @@ $global-color_transparent:              transparent;
 $global-color_classic:                  #3f5175;
 $global-color_navy:                     #333A56;
 $global-color_grey:                     #555A62;
-$global-color_whitesmoke:               #BCBEC1;
+$global-color_whitesmoke:               #e5e7ea;
 $global-color_powder:                   #018991;
 
 $global-color_primary:                  $global-color_classic !default;
@@ -32,8 +32,6 @@ $global-body_bg:                        $global-color_bg !default;
 $link-default_color:                    $global-color_fg !default;
 $link-default-hover_color:              $global-color_powder !default;
 
-$icon-default_size:                     20px !default;
-
 /* -------------------------------------------------------------- *\
     Theme
 \* -------------------------------------------------------------- */
@@ -46,17 +44,58 @@ $theme-photo_borderRadius:               $global_borderRadius !default;
 
 $theme-link-hover_textDecoration:        underline !default;
 
-$theme-heading-hover_color:             $global-color_powder !default;
+$theme-heading-hover_color:              $global-color_powder !default;
 
 /* -------------------------------------------------------------- *\
     Header
 \* -------------------------------------------------------------- */
 
-$header_minHeight:                       48px !default;
 $header_bg:                              $global-color_whitesmoke !default;
 $header_fg:                              $global-color_primary !default;
-$header-link_color:                      $global-color_primary !default;
-$header-link-hover_color:                $global-color_primaryAlt !default;
+$header-link_color:                      $header_fg !default;
+$header-link-hover_color:                $global-color_powder !default;
+
+$headerButton_bg:                        transparent !default;
+$headerButton_fg:                        $header_fg !default;
+$headerButton_borderColor:               $header_fg !default;
+
+$headerButton-hover_bg:                  transparent !default;
+$headerButton-hover_fg:                  $global-color_powder !default;
+$headerButton-hover_borderColor:         $global-color_powder !default;
+
+$headerMebutton_bg:                      transparent !default;
+$headerMebutton_fg:                      $header_fg !default;
+$headerMebutton-hover_fg:                $header-link_color !default;
+$headerMebutton-hover_bg:                mix($headerMebutton_fg, $header_bg, 18%) !default;
+$headerMebutton-active_bg:               mix($headerMebutton_fg, $header_bg, 18%) !default;
+
+$headerMeBoxAlert_bg:                    $global-color_powder !default;
+
+/* -------------------------------------------------------------- *\
+    Navigation
+\* -------------------------------------------------------------- */
+
+$navigation_bg:                           $global-color_primary !default;
+$navigation_link_color:                   $global-color_white !default;
+$navigation_link-hover_color:             $global-color_white !default;
+$navigation_border:                       darken($navigation_bg, 8%) !default;
+
+$navigationButton_bg:                     $global-color_powder !default;
+$navigationButton_fg:                     $global-color_white !default;
+$navigationButton_border:                 $global-color_powder !default;
+
+$navigationButton-hover_bg:               darken($global-color_powder, 4%) !default;
+$navigationButton-hover_fg:               $global-color_white !default;
+$navigationButton-hover_border:           darken($global-color_powder, 4%) !default;
+
+$navigationMeBoxAlert_bg:                 $global-color_powder !default;
+
+$navigationMebutton_bg:                   transparent !default;
+$navigationMebutton_fg:                   $navigation-link_color !default;
+$navigationMebutton-hover_fg:             $navigation-link_color !default;
+$navigationMebutton-hover_bg:             transparent !default;
+$navigationMebutton-active_bg:            transparent !default;
+
 
 /* -------------------------------------------------------------- *\
     Panel
@@ -82,72 +121,37 @@ $footer-link_color:                      $global-color_white !default;
 $footer-link-hover_color:                $global-color_white !default;
 
 /* -------------------------------------------------------------- *\
-    Buttons
-\* -------------------------------------------------------------- */
-
-$button-basic_fg:                        $global-color_grey !default;
-$button-basic_bg:                        transparent !default;
-$button-basic_border:                    $global-color_whitesmoke !default;
-
-$button-basic-hover_fg:                  $global-color_primary !default;
-$button-basic-hover_bg:                  transparent !default;
-$button-basic-hover_border:              $global-color_primary !default;
-
-$button-primary_fg:                      $global-color_white !default;
-$button-primary_bg:                      $global-color_primary !default;
-$button-primary_border:                  $global-color_primary !default;
-
-$button-primary-hover_fg:                $global-color_white !default;
-$button-primary-hover_bg:                $global-color_primaryAlt !default;
-$button-primary-hover_border:            $global-color_primaryAlt !default;
-
-/* -------------------------------------------------------------- *\
     Form Elements
 \* -------------------------------------------------------------- */
 
 $formElement_borderRadius:               $global_borderRadius !default;
 
 /* -------------------------------------------------------------- *\
-    Form Buttons
+    Buttons
 \* -------------------------------------------------------------- */
 
-$formButton_borderRadius:                $formElement_borderRadius !default;
+$button-basic_fg:                        $global-color_grey !default;
+$button-basic_bg:                        transparent !default;
+$button-basic_border:                    $global-color_grey !default;
 
-/* -------------------------------------------------------------- *\
-    Navigation
-\* -------------------------------------------------------------- */
+$button-basic-hover_fg:                  $global-color_powder !default;
+$button-basic-hover_bg:                  transparent !default;
+$button-basic-hover_border:              $global-color_powder !default;
 
-$navigation_bg:                           $global-color_primary !default;
-$navigation_link_color:                   $global-color_white !default;
-$navigation_link-hover_color:             $global-color_white !default;
+$button-primary_fg:                      $global-color_white !default;
+$button-primary_bg:                      $global-color_primary !default;
+$button-primary_border:                  $global-color_primary !default;
 
-$navigation-button_bg:                    $global-color_powder !default;
-$navigation-button_fg:                    $global-color_white !default;
-$navigation-button_border:                $global-color_powder !default;
-
-$navigation-button-hover_bg:              lighten($global-color_powder, 4%) !default;
-$navigation-button-hover_fg:              $global-color_white !default;
-$navigation-button-hover_border:          lighten($global-color_powder, 4%) !default;
-
-/* -------------------------------------------------------------- *\
-    Mebox
-\* -------------------------------------------------------------- */
-
-$mebox_fg:                               $global-color_white !default;
-$mebox_hover_color:                      $global-color_white !default;
-$mebox_hover_bg:                         mix($global-color_bg, $header_bg, 20%) !default;
+$button-primary-hover_fg:                $global-color_white !default;
+$button-primary-hover_bg:                $global-color_powder !default;
+$button-primary-hover_border:            $global-color_powder !default;
 
 /* -------------------------------------------------------------- *\
     Components
 \* -------------------------------------------------------------- */
 
 $component_lateralBorder:                true !default;
-
-$component-meta_color:                   mix($global-color_fg, $global-color_bg, 48%) !default;
-$component-meta-link_color:              $component-meta_color !default;
-$component-meta-link-hover_color:        $component-meta-link_color !default;
-
-$component-header_bg:                    transparent !default;
+$component_borderRadius:                 $global_borderRadius !default;
 
 /* -------------------------------------------------------------- *\
     Tags
@@ -158,9 +162,11 @@ $tag-hover_bg:                    $button-basic-hover_bg !default;
 $tag-hover_fg:                    $global-color_powder !default;
 $tag-hover_borderColor:           $global-color_powder !default;
 
+
 /* -------------------------------------------------------------- *\
     Bullets
 \* -------------------------------------------------------------- */
 
+$bullet_bg:                              transparent !default;
+$bullet_fg:                              $global-color_powder !default;
 $bullet_borderColor:                     $global-color_powder !default;
-$bullet_bg:                              $global-color_powder !default;

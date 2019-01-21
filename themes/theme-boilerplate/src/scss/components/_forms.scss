@@ -41,12 +41,12 @@ select,
 }
 
 textarea {
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: $formElement_paddingHorizontal;
+    padding-bottom: $formElement_paddingHorizontal;
     overflow: auto;
 
-    @if ($formElement_borderRadius == $formElement_height) {
-        border-radius: #{$formElement_borderRadius / 2}
+    @if ($formElement_borderRadius >= 14px) {
+        border-radius: 14px;
     }
 }
 

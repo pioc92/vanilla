@@ -225,7 +225,7 @@ $navigationMeBoxAlert_bg:                 $global-color_secondary !default;
 $navigationMebutton_bg:                   transparent !default;
 $navigationMebutton_fg:                   $navigation-link_color !default;
 $navigationMebutton-hover_fg:             $navigation-link_color !default;
-$navigationMebutton-hover_bg:             mix($global-color_fg, $navigation_bg, 26%) !default;
+$navigationMebutton-hover_bg:             transparent !default;
 $navigationMebutton-active_bg:            mix($navigationMebutton_fg, $navigation_bg, 12%) !default;
 
 /* -------------------------------------------------------------- *\

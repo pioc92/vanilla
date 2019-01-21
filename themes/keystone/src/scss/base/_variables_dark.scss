@@ -58,12 +58,12 @@ $header_fg:                              $global-color_white !default;
 $header-link_color:                      $global-color_white !default;
 
 $headerButton_bg:                        transparent !default;
-$headerButton_fg:                        $header-link_color !default;
-$headerButton_borderColor:               $header-link_color !default;
+$headerButton_fg:                        $header_fg !default;
+$headerButton_borderColor:               $header_fg !default;
 
-$headerButton-hover_bg:                  mix($header-link_color, $header_bg, 12%) !default;
-$headerButton-hover_fg:                  $header-link_color !default;
-$headerButton-hover_borderColor:         $header-link_color !default;
+$headerButton-hover_bg:                  transparent !default;
+$headerButton-hover_fg:                  $global-color_grey !default;
+$headerButton-hover_borderColor:         $global-color_grey !default;
 
 $headerMebutton_bg:                      transparent !default;
 $headerMebutton_fg:                      $header-link_color !default;

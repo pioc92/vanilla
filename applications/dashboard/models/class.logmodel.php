@@ -390,7 +390,7 @@ class LogModel extends Gdn_Pluggable {
      * @param bool $limit The database limit.
      * @return array Returns a data set.
      */
-    public function getWhere($where = false, $orderFields = '', $orderDirection = 'asc', $offset = false, $limit = false) {
+    public function getWhere($where = false, $orderFields = '', $orderDirection = 'asc', $offset = false, $limit = false, $visibleCategoryIDs = false) {
         if ($offset < 0) {
             $offset = 0;
         }
@@ -400,16 +400,22 @@ class LogModel extends Gdn_Pluggable {
             unset($where['Operation']);
         }
 
-        $result = Gdn::sql()
-            ->select('l.*')
+        $sql = Gdn::sql();
+        $sql->select('l.*')
             ->select('ru.Name as RecordName, iu.Name as InsertName')
             ->from('Log l')
             ->join('User ru', 'l.RecordUserID = ru.UserID', 'left')
             ->join('User iu', 'l.InsertUserID = iu.UserID', 'left')
-            ->where($where)
-            ->limit($limit, $offset)
-            ->orderBy($orderFields, $orderDirection)
-            ->get()->resultArray();
+            ->where($where);
+
+        if (gettype($visibleCategoryIDs) == "array") {
+            $sql->whereIn('CategoryID', $visibleCategoryIDs);
+        }
+
+        $sql->limit($limit, $offset)
+            ->orderBy($orderFields, $orderDirection);
+
+        $result = $sql->get()->resultArray();
 
         // Deserialize the data.
         foreach ($result as &$row) {

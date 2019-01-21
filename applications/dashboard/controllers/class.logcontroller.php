@@ -167,8 +167,11 @@ class LogController extends DashboardController {
             $operations = ucfirst($op);
         }
 
+        $visibleCategoryIDs = CategoryModel::instance()->getVisibleCategoryIDs();
+
         $where = [
-            'Operation' => $operations//,
+            'Operation' => $operations,
+            'CategoryID' => $visibleCategoryIDs
 //          'RecordType' => array('Discussion', 'Comment', 'Activity')
         ];
 
@@ -192,7 +195,7 @@ class LogController extends DashboardController {
             $offset = $recordCount - $limit;
         }
 
-        $log = $this->LogModel->getWhere($where, 'LogID', 'Desc', $offset, $limit);
+        $log = $this->LogModel->getWhere($where, 'LogID', 'Desc', $offset, $limit, $visibleCategoryIDs);
         $this->setData('Log', $log);
 
         if ($this->deliveryType() == DELIVERY_TYPE_VIEW) {

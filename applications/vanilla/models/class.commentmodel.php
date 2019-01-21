@@ -1079,6 +1079,11 @@ class CommentModel extends Gdn_Model {
                     return SPAM;
                 }
 
+                $discussionModel = new DiscussionModel();
+                $discussion = $discussionModel->getID(val('DiscussionID', $fields));
+                $categoryID = $discussion->CategoryID;
+                //$fields['CategoryID'] = $discussion->CategoryID;
+
                 $isValid = true;
                 $invalidReturnType = false;
                 $this->EventArguments['CommentData'] = $commentData;
@@ -1092,7 +1097,7 @@ class CommentModel extends Gdn_Model {
 
                 if ($insert === false) {
                     // Log the save.
-                    LogModel::logChange('Edit', 'Comment', array_merge($fields, ['CommentID' => $commentID]));
+                    LogModel::logChange('Edit', 'Comment', array_merge($fields, ["CategoryID" => $categoryID], ['CommentID' => $commentID]));
                     // Save the new value.
                     $this->serializeRow($fields);
                     $this->SQL->put($this->Name, $fields, ['CommentID' => $commentID]);
@@ -1105,9 +1110,9 @@ class CommentModel extends Gdn_Model {
                     // Check for approval
                     $approvalRequired = checkRestriction('Vanilla.Approval.Require');
                     if ($approvalRequired && !val('Verified', Gdn::session()->User)) {
-                        $discussionModel = new DiscussionModel();
-                        $discussion = $discussionModel->getID(val('DiscussionID', $fields));
-                        $fields['CategoryID'] = val('CategoryID', $discussion);
+//                        $discussionModel = new DiscussionModel();
+//                        $discussion = $discussionModel->getID(val('DiscussionID', $fields));
+                        $fields['CategoryID'] = $categoryID;
                         LogModel::insert('Pending', 'Comment', $fields);
                         return UNAPPROVED;
                     }

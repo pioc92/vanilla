@@ -265,10 +265,6 @@ div.token-input-dropdown {
     }
 }
 
-.DraftButton {
-    display: none !important;
-}
-
 .NewConversation.NewConversation {
     @include Button(
         $button-primary_bg,
